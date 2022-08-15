@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-md">
+	<h1>{{note.title}}</h1>
+	<div class="jumbotron jumbotron-fluid">
+		<p>{{note.summary}}</p>
+		<a href="{% url 'update' note.id %}"><button type="button" class="btn btn-outline-info">Edit</button></a>
+		<a href="{% url 'delete' note.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+
+	</div>
+	
+</div>
+
+
+
+{% endblock %}

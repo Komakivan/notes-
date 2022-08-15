@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Welcome To Blue Notes</h1>
+    <div class="container">
+      
+        {% if user.is_authenticated %}
+        <div class="jumbotron">
+           <a href="{% url 'form' %}"><button type="button" class="btn btn-outline-primary">New note</button></a>
+            <hr>
+            <ul class="list-group list-group-flush">
+                {% for note in notes %}
+                <a href="{% url 'content' note.id %}" class="text-decoration-none"><li class="list-group-item">{{note.title}}</li></a>
+                {% endfor %}
+                
+            </ul>
+        </div>
+        
+        {% endif %}
+    </div>
+
+    
+{% endblock %}

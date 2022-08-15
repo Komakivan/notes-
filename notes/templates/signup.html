@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form class="form-control" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <h1>Register Here</h1>
+        <p>Please fill in the details to create an account with us.</p>
+        <hr>
+        <label for="name"><b>username</b></label>
+        <input id="name" class="form-control" type="text" placeholder="username" name="uname" required>
+     
+        <label for="email"><b>Enter Email</b></label>
+        <input id="email" class="form-control" type="email" placeholder="Enter Email" name="email">
+     
+        <label for="pwd"><b>Password</b></label>
+        <input id="pwd" type="password" class="form-control" placeholder="Enter Password" name="pwd">
+    
+        <label for="confirm"><b>Confirm Password</b></label>
+        <input id="confirm" type="password" class="form-control" placeholder="Confirm Password" name="confirm">
+        <hr>
+        <button type="submit" class="btn btn-outline-primary" ><strong>Register</strong></button>
+      
+    </div>
+    <div class="container signin">
+        <p>Already have an account? <a href="{% url 'signin' %}">Sign in</a>.</p>
+    </div>
+</form>
+    {% for message in messages %}
+        <h3>{{message}}</h3>
+    {% endfor %}
+
+{% endblock %}

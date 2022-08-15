@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form class="form-control" method="post">
+    {% csrf_token %}
+    <div class="container-md">
+        <h1>Login Here</h1>
+        <p>Please fill in your details.</p>
+        <hr>
+        <label for="name"><b>username</b></label>
+        <input id="name" type="text" class="form-control" placeholder="enter username" name="uname" required>
+     
+
+        <label for="pwd"><b>Password</b></label>
+        <input id="pwd" type="password" class="form-control" placeholder="Enter Password" name="pwd">
+
+        <hr>
+        <button type="submit" ><strong>Login</strong></button>
+    </div>
+    <div class="container signin">
+        <p>Not yet a member?<a href="{% url 'signup' %}">Signup</a>.</p>
+    </div>
+</form>
+
+
+{% endblock %}
